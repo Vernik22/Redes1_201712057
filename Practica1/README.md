@@ -12,7 +12,7 @@ Para la creacion de la practica 1 se utilizo el id de red utilizando los ultimos
 ![D](./img/N1_1.png)
 
 ### Configuracion de VPC area de Gerencia
-![D](./img/N1_2.png.png)
+![D](./img/N1_2.png)
 
 ### Configuracion de VPC area de Atencion al Cliente
 
