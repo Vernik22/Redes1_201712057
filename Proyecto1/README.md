@@ -77,7 +77,7 @@ do write
 Procedemos a configurar las interfaces en modo troncal para el cliente.
 ```
 configure terminal
-interface Fa0/1
+interface e0/1
 switchport trunk encapsulation dot1q
 switchport mode trunk
 ```
@@ -96,12 +96,12 @@ Y por ultimo asignamos el modo de acceso a las Vlans que necesitemos.
 
 ```
 configure terminal
-interface Fa0/2
+interface e0/2
 switchport mode access
-switchport access vlan 10
-interface Fa0/3
+switchport access vlan 17
+interface e0/3
 switchport mode access
-switchport access vlan 20
+switchport access vlan 27
 do write
 ```
 
