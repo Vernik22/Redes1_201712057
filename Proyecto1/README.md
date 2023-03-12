@@ -43,58 +43,58 @@ Es decir que para las Vpcs qe se encuentran bajo la Vlan de "PLANEACION" se inic
 
 Debemos asignar el modo troncal a las interfaces necesarias.
 
-'''
+```
 configure terminal
 interface range e0/1-2
 switchport trunk encapsulation dot1q
 switchport mode trunk
-'''
+```
 
 Luego debemos crear las Vlan con los siguientes comandos podremos crear todas las que necesitemos en este caso creamos 4
 
-'''
+```
 configure terminal
 vlan 17
 name PRIMERA
 vlan 27
 name SEGUNDA
 end
-'''
+```
 
 Procegimos con la configuracion del server vtp simpre recordando escribir el comando "do write" para guardar nuestras configuraciones realizadas
 
-'''
+```
 configure terminal
 vtp version 2
 vtp mode server
 vtp domain dominio
 vtp password contrasena
 do write
-'''
+```
 
 ### Configuracion de VTP para Cliente
 
 Procedemos a configurar las interfaces en modo troncal para el cliente.
-'''
+```
 configure terminal
 interface Fa0/1
 switchport trunk encapsulation dot1q
 switchport mode trunk
-'''
+```
 
 Configuramos el modo cliente en el switch
 
-'''
+```
 configure terminal
 vtp mode client
 vtp domain dominio
 vtp password contrasena
 do write
-'''
+```
 
 Y por ultimo asignamos el modo de acceso a las Vlans que necesitemos.
 
-'''
+```
 configure terminal
 interface Fa0/2
 switchport mode access
@@ -103,19 +103,19 @@ interface Fa0/3
 switchport mode access
 switchport access vlan 20
 do write
-'''
+```
 
 ### Configuracion de Modo Transparente
 
 Y por ultimo configuramos el modo transparente para el switch en el proyecto
 
-'''
+```
 configure terminal
 vtp mode transparent
 vtp domain dominio
 vtp password contrasena
 do write
-'''
+```
 
 ## Comandos Utilizados
 
