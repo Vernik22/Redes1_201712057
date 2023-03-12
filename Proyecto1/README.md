@@ -117,7 +117,7 @@ vtp password contrasena
 do write
 ```
 
-## Comandos Utilizados
+## Pings entre Hosts
 
 ### Ping de Server RRHH hacia RRHH_1
 
