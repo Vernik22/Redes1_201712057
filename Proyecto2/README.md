@@ -5,15 +5,23 @@
 
 ## Resumen de direcciones IP y VLAN
 
-### VLAN
-Para la creacion del Proyecto 1 se utilizaron las siguientes IDs para identificar a las Vlans de la topologia:
+Para la creacion del Proyecto 2 se utilizaron las siguientes IDs para identificar a las Vlans de la topologia:
+#### Central
+Por la cantidad de equipos que se pueden conectar se elige la mascara de subred
 
-| VLAN   | ID | IP |
-|----------|-----|----:|
-| PLANEACION     |  17  | 192.168.17.254 /24  |
-| FINANZAS |  27  | 192.168.27.254 /24  | 
-| RRHH |  37  | 192.168.37.254 /24  |
-| IT |  47  | 192.168.47.254 /24  |
+![D](./img/Central.png)
+
+#### Jutiapa
+![D](./img/Jutiapa.png)
+
+#### Core
+![D](./img/Core.png)
+
+#### Routers C1 y C2
+![D](./img/Nucleo.png)
+
+#### Routers J1 y J2
+![D](./img/Routers.png)
 
 ### IPs Vpcs
 Para la asignacion de IPs para las Vpc que se utilizaron, se iniciaron desde el 1 hasta el numero consecutivo siguiente.
