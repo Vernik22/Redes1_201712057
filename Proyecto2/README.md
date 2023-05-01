@@ -42,90 +42,92 @@ Por la cantidad de equipos que se pueden conectar se elige la mascara de subred
 
 ![D](./img/Top_Completa.png)
 
-### Configuracion de VTP para Servidor
+### Comandos Utilizados
 
-Debemos asignar el modo troncal a las interfaces necesarias.
+Para configuracion de los routers.
 
 ```
+interface Ethernet 0/0.<numero de vlan>
+encapsulation dot1q <numero de vlan>
+
+interface Ethernet 0/0.10
+encapsulation dot1q 10
+
+enable
 configure terminal
-interface range e0/1-2
+hostname R1
+interface Ethernet 0/0
+no shutdown
+interface Ethernet 0/0.10
+encapsulation dot1q 10
+ip address 192.168.1.1 255.255.255.0
+interface Ethernet 0/0.20
+encapsulation dot1q 20
+ip address 192.168.2.1 255.255.255.0
+do write
+```
+
+Para el swtich de capa 3, se puede configurar el ip 
+
+```
+enable
+configure terminal
+interface e0/2
+no switchport
+ip address 192.167.57.4 255.255.255.0
+no shutdown
+do write
+```
+
+Y para la red interna podemos utilizar las siguientes comandos
+
+```
+enable
+configure terminal
+hostname ESW
+vlan 17
+name GERENCIA
+vlan 27
+name IT
+interface e0/0
 switchport trunk encapsulation dot1q
 switchport mode trunk
+interface vlan 17
+ip address 192.168.57.1 255.255.255.0
+no shutdown
+interface vlan 27
+ip address 192.168.57.1 255.255.255.0
+no shutdown
+exit
+ip routing
+do write
 ```
 
-Luego debemos crear las Vlan con los siguientes comandos podremos crear todas las que necesitemos en este caso creamos 4
-
+Para configuracion de las Vlans.
 ```
 configure terminal
 vlan 17
-name PRIMERA
+name RRHHH
 vlan 27
-name SEGUNDA
+name CONTABILIDAD
 end
 ```
 
-Procegimos con la configuracion del server vtp simpre recordando escribir el comando "do write" para guardar nuestras configuraciones realizadas
+Configurar switches server y cliente
 
 ```
 configure terminal
-vtp version 2
-vtp mode server
-vtp domain dominio
-vtp password contrasena
-do write
+interface range Fa0/1-2
+switchport trunk encapsulation dot1q
+switchport mode trunk
 ```
+Cliente
 
-### Configuracion de VTP para Cliente
-
-Procedemos a configurar las interfaces en modo troncal para el cliente.
 ```
 configure terminal
-interface e0/1
+interface Fa0/1
 switchport trunk encapsulation dot1q
 switchport mode trunk
 ```
 
-Configuramos el modo cliente en el switch
 
-```
-configure terminal
-vtp mode client
-vtp domain dominio
-vtp password contrasena
-do write
-```
-
-Y por ultimo asignamos el modo de acceso a las Vlans que necesitemos.
-
-```
-configure terminal
-interface e0/2
-switchport mode access
-switchport access vlan 17
-interface e0/3
-switchport mode access
-switchport access vlan 27
-do write
-```
-
-### Configuracion de Modo Transparente
-
-Y por ultimo configuramos el modo transparente para el switch en el proyecto
-
-```
-configure terminal
-vtp mode transparent
-vtp domain dominio
-vtp password contrasena
-do write
-```
-
-## Pings entre Hosts
-
-### Ping de Server RRHH hacia RRHH_1
-
-![D](./img/Ping_ServerRRHH_RRHH_1.png)
-
-### Ping de Server Planeacion hacia Planeacion_1
-
-![D](./img/Ping_ServerPlaneacion_Planeacion1.png)
