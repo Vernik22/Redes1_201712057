@@ -42,7 +42,7 @@ Por la cantidad de equipos que se pueden conectar se elige la mascara de subred
 
 ![D](./img/Top_Completa.png)
 
-### Comandos Utilizados
+## Comandos Utilizados
 
 Para configuracion de los routers.
 
@@ -130,4 +130,8 @@ switchport trunk encapsulation dot1q
 switchport mode trunk
 ```
 
+## Capturas WireShark
 
+Captura Vlan
+
+![D](./img/Ping_Vlan.png)
