@@ -17,35 +17,30 @@ Por la cantidad de equipos que se pueden conectar se elige la mascara de subred
 #### Core
 ![D](./img/Core.png)
 
-#### Routers C1 y C2
+#### Routers J1 y J2
 ![D](./img/Nucleo.png)
 
-#### Routers J1 y J2
+#### Routers C1 y C2
 ![D](./img/Routers.png)
 
-### IPs Vpcs
-Para la asignacion de IPs para las Vpc que se utilizaron, se iniciaron desde el 1 hasta el numero consecutivo siguiente.
-Es decir que para las Vpcs qe se encuentran bajo la Vlan de "PLANEACION" se inicio con la configuracion desde la 192.168.17.1 ...
 
 ## Implementacion de la Topologia
 
-### Datacenter
+### Topologia Centro
 
-![D](./img/Datacenter.png)
+![D](./img/Top_Central.png)
 
-### Backbone
+### Topologia Cores
 
-![D](./img/Backbone.png)
+![D](./img/Top_Cores.png)
 
-### Area de Trabajo
+### Topologia Jutiapa
 
-![D](./img/Area_trabajo.png)
+![D](./img/Top_Jutiapa.png)
 
 ### Topologia Completa
 
-![D](./img/Topologia.png)
-
-## Comandos Utilizados
+![D](./img/Top_Completa.png)
 
 ### Configuracion de VTP para Servidor
 
